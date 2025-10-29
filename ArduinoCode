@@ -1,0 +1,17 @@
+
+
+const int soilMoisturePin = A0;
+
+void setup() {
+  Serial.begin(9600); // Start serial communication
+}
+
+void loop() {
+  int sensorValue = analogRead(soilMoisturePin);
+  int moisturePercent = map(sensorValue, 1023, 0, 0, 100);
+
+  // Send moisture reading to Python
+  Serial.println(moisturePercent);
+
+  delay(3000); // Wait 3 seconds before next reading
+}
